@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/hieuprokk97/golang-eCommerce.git/internal/service"
+	"github.com/hieuprokk97/golang-eCommerce.git/pkg/response"
 )
 
 type UserController struct {
@@ -19,7 +20,9 @@ func NewUserController() *UserController { //con trỏ
 
 func (uc *UserController) GetUserById(c *gin.Context) {
 
-	c.JSON(http.StatusOK, gin.H{
-		"message": service.NewUserService().GetInfoUserService(),
+	c.JSON(http.StatusOK, response.Response{
+		Code:    200,
+		Message: "success",
+		Data:    []string{"hieu", "prokk"},
 	})
 }
